@@ -52,7 +52,6 @@ if category:
 if selected_sub_categories:
     filtered_df = df[(df['Category'] == category) & (df['Sub_Category'].isin(selected_sub_categories))]
 st.write("### (3) show a line chart of sales for the selected items in (2)")
-    st.write("### Sales Line Chart")
     sales_chart = filtered_df.groupby('Order_Date')['Sales'].sum().reset_index()
     st.line_chart(sales_chart, x='Order_Date', y='Sales')
 st.write("### (4) show three metrics (https://docs.streamlit.io/library/api-reference/data/st.metric) for the selected items in (2): total sales, total profit, and overall profit margin (%)")
